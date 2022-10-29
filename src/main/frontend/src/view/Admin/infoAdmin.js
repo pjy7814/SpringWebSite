@@ -22,6 +22,7 @@ function Info() {
 
     return (
         <div>
+            <h1>Admin Info</h1>
             {info && <li>제목: {info.title}</li>}
             {info && <li>부제목: {info.subtitle}</li>}
             {info && <li>본문: {info.content}</li>}
