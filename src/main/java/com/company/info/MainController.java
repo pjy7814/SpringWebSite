@@ -31,12 +31,11 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public void getLogin(@RequestBody Map<String, Object> requestData) {
-        System.out.println("!!!!!!!!!!!!!");
-        requestData.forEach((key, value) -> {
-            System.out.println("key : " + key);
-            System.out.println("value : " + value);
-        });
-
+    public boolean getLogin(@RequestBody User user) {
+        int result = service.getLogin(user);
+        if (result == 1) {
+            return true;
+        }
+        return false;
     }
 }

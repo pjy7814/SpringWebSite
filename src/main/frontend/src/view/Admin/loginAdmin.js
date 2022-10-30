@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from "axios";
-
+import { useLocation, useNavigate } from "react-router-dom";
 
 function LoginAdmin() {
 
@@ -17,7 +17,6 @@ function LoginAdmin() {
     };
 
     const reqData = JSON.stringify(user_login);
-    const [resData, setResdata] = useState('');
     const onClick = async () =>  {
         try {
             const response = await axios.post('/login', reqData,{
@@ -26,9 +25,15 @@ function LoginAdmin() {
                     'Content-Type': 'application/json'
                 }
             });
-            console.log(reqData);
             console.log(response.data)
-            setResdata(response.data);
+
+            if (response.data == 1) {
+                console.log('loginSuccess!')
+                sessionStorage.setItem('user_id', user_login.id)
+                document.location.href = '/admin'
+            } else {
+                alert('로그인에 실패하였습니다. 다시 확인해주세요');
+            }
         } catch(e) {
             console.log('error!', e);
         }

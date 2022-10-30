@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 
-function Info() {
+export default function InfoAdmin() {
     const [info, setInfo] = useState({
         title: '',
         subtitle: '',
@@ -29,7 +29,3 @@ function Info() {
         </div>
     );
 }
-
-
-
-export default Info;

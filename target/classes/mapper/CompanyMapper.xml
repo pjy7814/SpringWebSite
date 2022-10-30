@@ -9,7 +9,7 @@
     <update id="updateInfo">
         update Info set subTitle=#{subTitle}, content=#{content} where title = #{title}
     </update>
-    <select id="getLogin">
+    <select id="getLogin" parameterType="User" resultType="_int">
         select id=#{id} and passwd=#{passwd} from user;
     </select>
 </mapper>
