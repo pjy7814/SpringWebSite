@@ -1,7 +1,28 @@
 import {Link} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function HeadMenuAdmin() {
+
+    //로그아웃버튼
+    const onClick = async () =>  {
+        try {
+            const response = await axios.post('/logout', {
+
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                    document.location.href = '/'
+                }
+            )
+            console.log("logout", response)
+        } catch(e) {
+            console.log('error!', e);
+        }
+
+
+    }
     return(
         <nav>
             <Link to='/'>Home</Link>
@@ -14,7 +35,7 @@ export default function HeadMenuAdmin() {
             <br />
             <Link to='/contactAdmin'>Contact</Link>
             <br />
-            <Link to='/logout'>Logout</Link>
+            <button type="submit" onClick={onClick}>로그아웃</button>
         </nav>
     );
 }

@@ -4,8 +4,11 @@ import com.company.info.model.Info;
 import com.company.info.model.User;
 import com.company.info.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,11 +34,50 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public boolean getLogin(@RequestBody User user) {
+    public String getLogin(@RequestBody User user, HttpServletRequest request) {
         int result = service.getLogin(user);
-        if (result == 1) {
-            return true;
+        if (result != 1) {
+            return "alert";
+
         }
-        return false;
+        // 로그인 성공
+        HttpSession session = request.getSession();
+        session.setAttribute(SessionConstants.LOGIN_MEMBER, user);
+        return "success";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request) {
+
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            System.out.println("logout Success");
+            session.invalidate();   // 세션 날림
+        }
+
+        return "logout";
+    }
+
+    @GetMapping("/loginCheck")
+    public String loginCheck(HttpServletRequest request, Model model) {
+        // 세션이 없으면 홈으로 이동
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            return "home";
+        }
+
+        // 세션에 저장된 회원 조회
+        User loginMember = (User) session.getAttribute(SessionConstants.LOGIN_MEMBER);
+
+        // 세션에 회원 데이터가 없으면 홈으로 이동
+        if (loginMember == null) {
+            return "notLogin";
+        }
+
+        // 세션이 유지되면 로그인으로 이동
+        System.out.println("Admin"+ loginMember.getId());
+        model.addAttribute("user", loginMember);
+
+        return "loginMember";
     }
 }
