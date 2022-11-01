@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import HeadMenu from "./headMenu";
 
 
 function Info() {
@@ -22,6 +23,7 @@ function Info() {
 
     return (
         <div>
+            <HeadMenu />
             {info && <li>제목: {info.title}</li>}
             {info && <li>부제목: {info.subtitle}</li>}
             {info && <li>본문: {info.content}</li>}

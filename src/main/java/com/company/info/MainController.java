@@ -26,13 +26,8 @@ public class MainController {
         return "안녕하세요 리액트와 스프링부트를 Proxy 설정을 통해 연결하고 있습니다 : " + info.getSubtitle()+ info.getContent();
     }
 
-    @GetMapping("/info")
-    public Info getInfo() {
-        Info info = service.getInfo();
-        System.out.println(info.getSubtitle()+ info.getContent());
-        return info;
-    }
 
+    // 로그인
     @PostMapping("/login")
     public String getLogin(@RequestBody User user, HttpServletRequest request) {
         int result = service.getLogin(user);
@@ -80,4 +75,21 @@ public class MainController {
 
         return "loginMember";
     }
+
+    // Info
+    @GetMapping("/info")
+    public Info getInfo() {
+        Info info = service.getInfo();
+        System.out.println(info.getSubtitle()+ info.getContent());
+        return info;
+    }
+    @PostMapping("/update/info")
+    public boolean updateInfo(@RequestBody Info info) {
+        int result = service.updateInfo(info);
+        if (result == 0) {  // 업데이트 실패
+            return false;
+        }
+        return true;
+    }
+    
 }

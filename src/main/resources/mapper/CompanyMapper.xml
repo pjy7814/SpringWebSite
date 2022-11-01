@@ -6,8 +6,8 @@
     <select id="getInfo" resultType="Info">
         SELECT * FROM Info
     </select>
-    <update id="updateInfo">
-        update Info set subTitle=#{subTitle}, content=#{content} where title = #{title}
+    <update id="updateInfo" parameterType="User">
+        update Info set subTitle=#{subtitle}, content=#{content}, title = #{title} where id = 1;
     </update>
     <select id="getLogin" parameterType="User" resultType="_int">
         select id=#{id} and passwd=#{passwd} from user;

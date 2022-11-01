@@ -11,7 +11,8 @@ import java.util.List;
 @Mapper
 public interface CompanyMapper {
     Info getInfo();
-    boolean updateInfo(Info info);
+    int updateInfo(Info info);
 
     int getLogin(User user);
+
 }

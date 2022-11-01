@@ -25,7 +25,7 @@ export default function HeadMenuAdmin() {
     }
     return(
         <nav>
-            <Link to='/'>Home</Link>
+            <Link to='/admin'>Home</Link>
             <br />
             <Link to='/infoAdmin'>Info</Link>
             <br />

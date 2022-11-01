@@ -19,8 +19,8 @@ public class CompanyService {
     public Info getInfo(){
         return companyMapper.getInfo();
     }
-    public boolean updateInfo(Info info){
-        return true;
+    public int updateInfo(Info info){
+        return companyMapper.updateInfo(info);
     }
 
     // 로그인
