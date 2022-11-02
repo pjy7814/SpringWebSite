@@ -2,6 +2,7 @@ package com.company.info.service;
 
 import com.company.info.mapper.CompanyMapper;
 import com.company.info.model.Info;
+import com.company.info.model.Notice;
 import com.company.info.model.User;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,10 @@ public class CompanyService {
         return companyMapper.updateInfo(info);
     }
 
+    // 공지사항
+    public List<Notice> getNotice() {
+        return companyMapper.getNotice();
+    }
     // 로그인
     public int getLogin(User user) {
         return companyMapper.getLogin(user);

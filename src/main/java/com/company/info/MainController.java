@@ -1,15 +1,18 @@
 package com.company.info;
 
 import com.company.info.model.Info;
+import com.company.info.model.Notice;
 import com.company.info.model.User;
 import com.company.info.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -90,6 +93,14 @@ public class MainController {
             return false;
         }
         return true;
+    }
+
+    // Notice
+    @GetMapping("/notice")
+    public List<Notice> getNotice() {
+
+        List<Notice> nList = service.getNotice();
+        return nList;
     }
     
 }

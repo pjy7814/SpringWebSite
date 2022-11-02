@@ -53,9 +53,9 @@ export default function InfoAdmin() {
             <HeadMenuAdmin />
             <header>----------------------------------</header>
             <h1>Admin Info</h1>
-            {info && <li>제목: <input name = "title" type="text" placeholder="제목" value={info.title} onChange={onChange} maxLength={50} /></li>}
-            {info && <li>부제목: <input name = "subtitle" type="text" placeholder="부제목" value={info.subtitle} onChange={onChange} maxLength={100} /></li>}
-            {info && <li>본문: <input name = "content" type="text" placeholder="본문" value={info.content} onChange={onChange} maxLength={800} /></li>}
+            {info && <li>제목: <textarea name = "title" placeholder="제목" value={info.title} onChange={onChange} maxLength={50} /></li>}
+            {info && <li>부제목: <textarea name = "subtitle" placeholder="부제목" value={info.subtitle} onChange={onChange} maxLength={100} /></li>}
+            {info && <li>본문: <textarea name = "content" placeholder="본문" value={info.content} onChange={onChange} maxLength={800} /></li>}
             <button type="submit" onClick={onClick}>저장</button>
         </div>
     );
