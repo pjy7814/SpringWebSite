@@ -1,21 +1,27 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import {Button, Col, Divider, Row} from 'antd';
 
-export default function headMenu() {
+const HeadMenu: React.FC = () =>  {
     return(
-        <nav>
-            <Link to='/'>Home</Link>
-            <br />
-            <Link to='/info'>Info</Link>
-            <br />
-            <Link to='/product'>Product</Link>
-            <br />
-            <Link to='/notice'>Notice</Link>
-            <br />
-            <Link to='/contact'>Contact</Link>
-            <br />
-            <Link to='/login'>Login</Link>
-        </nav>
+        <>
+            <Row>
+                <Col flex="auto"></Col>
+                <Col flex="50px"><Link to='/login'>Login</Link></Col>
+
+            </Row>
+
+    <Row justify="end">
+        <Col span={2}><Button type="text" size="middle"><Link to='/'>Home</Link></Button></Col>
+        <Col span={2}><Button type="text" size="middle"><Link to='/info'>Information</Link></Button></Col>
+        <Col span={2}><Button type="text" size="middle"><Link to='/product'>Product</Link></Button></Col>
+        <Col span={2}><Button type="text" size="middle"><Link to='/notice'>Notice</Link></Button></Col>
+        <Col span={2}><Button type="text" size="middle"><Link to='/contact'>Contact</Link></Button></Col>
+    </Row>
+
+        </>
+
     );
 
 }
+export default HeadMenu;

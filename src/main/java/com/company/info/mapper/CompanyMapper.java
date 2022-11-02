@@ -19,4 +19,5 @@ public interface CompanyMapper {
 
     // notice
     List<Notice> getNotice();
+    Notice getNoticeDetail(int id);
 }

@@ -1,12 +1,13 @@
 import './App.css';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './view/home';
 import Info from './view/info';
 import Product from './view/product';
 import Notice from './view/notice';
+import NoticeDetail from './view/noticeDetail';
 import Contact from './view/contact';
-import LoginAdmin from './view/Admin/login'
+import LoginAdmin from './view/login'
 import HomeAdmin from "./view/Admin/homeAdmin";
 import InfoAdmin from "./view/Admin/infoAdmin";
 import ContactAdmin from "./view/Admin/contactAdmin";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/info" element={<Info />} />
           <Route path="/product" element={<Product />} />
           <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/:noticeId" element={<NoticeDetail />} />
           <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<LoginAdmin />} />
             <Route path="/admin" element={<HomeAdmin />} />

@@ -1,6 +1,8 @@
+import { Divider, Typography } from 'antd';
+import HeadMenu from "./headMenu";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import HeadMenu from "./headMenu";
+const { Title, Paragraph, Text, Link } = Typography;
 
 
 function Info() {
@@ -22,11 +24,21 @@ function Info() {
     }, []);
 
     return (
+
         <div>
             <HeadMenu />
-            {info && <li>제목: {info.title}</li>}
-            {info && <li>부제목: {info.subtitle}</li>}
-            {info && <li>본문: {info.content}</li>}
+        <br/>
+            <div style={{padding:"50px"}}>
+                <div style={{padding:"10px"}}>
+                    <Title>Introduction</Title>
+                    <Typography>
+
+                    {info &&  <Title level={2}> {info.title}</Title>}
+                    {info && <Title level={5}> {info.subtitle}</Title>}
+                    {info && <Paragraph > {info.content}</Paragraph>}
+                    </Typography>
+            </div>
+                </div>
         </div>
     );
 }

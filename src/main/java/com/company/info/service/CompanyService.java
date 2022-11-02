@@ -28,8 +28,12 @@ public class CompanyService {
     public List<Notice> getNotice() {
         return companyMapper.getNotice();
     }
+    public Notice getNoticeDetail(int id) {
+        return companyMapper.getNoticeDetail(id);
+    }
     // 로그인
     public int getLogin(User user) {
         return companyMapper.getLogin(user);
     }
+
 }

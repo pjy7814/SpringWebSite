@@ -102,5 +102,11 @@ public class MainController {
         List<Notice> nList = service.getNotice();
         return nList;
     }
+
+    @GetMapping("/notice/{id}")
+    public Notice getNoticeDetail(@PathVariable Integer id) {
+        Notice notice = service.getNoticeDetail(id);
+        return notice;
+    }
     
 }

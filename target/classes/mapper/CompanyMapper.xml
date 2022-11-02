@@ -15,4 +15,7 @@
     <select id="getNotice" resultType="Notice">
         select * from notice;
     </select>
+    <select id="getNoticeDetail" resultType="Notice">
+        select * from notice where id = #{id};
+    </select>
 </mapper>
