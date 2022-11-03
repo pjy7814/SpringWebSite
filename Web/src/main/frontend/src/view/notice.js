@@ -2,8 +2,6 @@ import { Table } from 'antd';
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import HeadMenu from "./headMenu";
-import {Route} from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 import {Typography} from "antd";
 const { Title} = Typography;
 
@@ -11,7 +9,6 @@ const { Title} = Typography;
 
 function Notice() {
     const [notice, setNotice] = useState([])
-
     useEffect(() => {
         axios.get('/notice')
             .then(response => {
@@ -22,9 +19,6 @@ function Notice() {
             .catch(error => console.log(error))
     }, []);
 
-    // const NoticeMap = notice.map((noti) =>
-    //     <Link to={"/notice/".concat(noti.id)}><li>{noti.id} {noti.title} {noti.noticeDate.split(" ")[0]}</li></Link>
-    // );
     return (
         <div>
             <HeadMenu />
@@ -40,7 +34,6 @@ function Notice() {
                         scroll={{
                             y: 240,
                         }}
-                        rowKey={notice.id}
                     />
                 </div>
             </div>

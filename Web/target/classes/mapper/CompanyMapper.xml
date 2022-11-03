@@ -13,7 +13,7 @@
         select id=#{id} and passwd=#{passwd} from user;
     </select>
     <select id="getNotice" resultType="Notice">
-        select * from notice;
+        select * from notice ORDER BY id DESC;
     </select>
     <select id="getNoticeDetail" resultType="Notice">
         select * from notice where id = #{id};
