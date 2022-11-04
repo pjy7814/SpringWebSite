@@ -3,7 +3,9 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import HeadMenu from "./headMenu";
 import {Typography} from "antd";
+import {Link} from "react-router-dom";
 const { Title} = Typography;
+
 
 
 
@@ -56,7 +58,7 @@ const columns = [
         key: 'title',
         render: (_, record) => (
 
-            <a href={("/notice/".concat(record.id))}>{record.title}</a>
+            <Link to={("/notice/".concat(record.id))}>{record.title}</Link>
         )
     },
     {
