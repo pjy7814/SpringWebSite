@@ -30,7 +30,6 @@ export default function HeadMenuAdmin() {
             <Row>
                 <Col flex="auto"></Col>
                 <Col flex="50px"><Link type="submit" onClick={onClick}>Logout</Link></Col>
-
             </Row>
 
             <Row justify="end">
