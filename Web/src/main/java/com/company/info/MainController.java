@@ -108,5 +108,15 @@ public class MainController {
         Notice notice = service.getNoticeDetail(id);
         return notice;
     }
+
+    @PostMapping("/insert/notice")
+    public boolean insertNotice(@RequestBody Notice notice) {
+//        System.out.println(notice.getTitle()+ notice.getContent());
+        int result = service.insertNotice(notice);
+        if (result == 0) {  // 업데이트 실패
+            return false;
+        }
+        return true;
+    }
     
 }

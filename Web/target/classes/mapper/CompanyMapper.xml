@@ -18,4 +18,7 @@
     <select id="getNoticeDetail" resultType="Notice">
         select * from notice where id = #{id};
     </select>
+    <insert id="insertNotice" parameterType="Notice">
+        insert into notice(title, content) values(#{title}, #{content});
+    </insert>
 </mapper>

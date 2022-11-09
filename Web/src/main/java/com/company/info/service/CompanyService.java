@@ -36,4 +36,7 @@ public class CompanyService {
         return companyMapper.getLogin(user);
     }
 
+    public int insertNotice(Notice notice) {
+        return companyMapper.insertNotice(notice);
+    }
 }

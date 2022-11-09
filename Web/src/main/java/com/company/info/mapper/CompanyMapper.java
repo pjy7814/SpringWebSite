@@ -20,4 +20,6 @@ public interface CompanyMapper {
     // notice
     List<Notice> getNotice();
     Notice getNoticeDetail(int id);
+
+    int insertNotice(Notice notice);
 }

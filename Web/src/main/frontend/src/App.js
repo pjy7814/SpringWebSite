@@ -10,8 +10,11 @@ import Contact from './view/contact';
 import LoginAdmin from './view/login'
 import HomeAdmin from "./view/Admin/homeAdmin";
 import InfoAdmin from "./view/Admin/infoAdmin";
+import NoticeAdmin from "./view/Admin/Notice/noticeAdmin"
+import NoticeCreate from "./view/Admin/Notice/noticeAdmin_create"
 import ContactAdmin from "./view/Admin/contactAdmin";
 import React from "react";
+import ProductAdmin from "./view/Admin/productAdmin";
 
 function App() {
   return (
@@ -26,9 +29,10 @@ function App() {
             <Route path="/login" element={<LoginAdmin />} />
             <Route path="/admin" element={<HomeAdmin />} />
             <Route path="/infoAdmin" element={<InfoAdmin />} />
-            <Route path="/productAdmin" element={<Product />} />
-            <Route path="/noticeAdmin" element={<Notice />} />
+            <Route path="/productAdmin" element={<ProductAdmin />} />
+            <Route path="/noticeAdmin" element={<NoticeAdmin />} />
             <Route path="/contactAdmin" element={<ContactAdmin />} />
+          <Route path="/noticeCreate" element={<NoticeCreate />}/>
           {/*<Route path="/logout" element={<Home />} />*/}
         </Routes>
       </BrowserRouter>
