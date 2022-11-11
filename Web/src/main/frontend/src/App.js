@@ -15,6 +15,7 @@ import NoticeCreate from "./view/Admin/Notice/noticeAdmin_create"
 import ContactAdmin from "./view/Admin/contactAdmin";
 import React from "react";
 import ProductAdmin from "./view/Admin/productAdmin";
+import MyPage from "./view/Admin/myPage";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/noticeAdmin" element={<NoticeAdmin />} />
             <Route path="/contactAdmin" element={<ContactAdmin />} />
           <Route path="/noticeCreate" element={<NoticeCreate />}/>
+          <Route path="/mypage" element={<MyPage />}/>
           {/*<Route path="/logout" element={<Home />} />*/}
         </Routes>
       </BrowserRouter>

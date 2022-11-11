@@ -10,14 +10,17 @@ const HeadMenu: React.FC = () =>  {
                 <Col flex="50px"><Link to='/login'>Login</Link></Col>
 
             </Row>
-
-    <Row justify="end">
-        <Col span={2}><Button type="text" size="middle"><Link to='/'>Home</Link></Button></Col>
-        <Col span={2}><Button type="text" size="middle"><Link to='/info'>Information</Link></Button></Col>
-        <Col span={2}><Button type="text" size="middle"><Link to='/product'>Product</Link></Button></Col>
-        <Col span={2}><Button type="text" size="middle"><Link to='/notice'>Notice</Link></Button></Col>
-        <Col span={2}><Button type="text" size="middle"><Link to='/contact'>Contact</Link></Button></Col>
-    </Row>
+            <table style={{margin:"auto", width: "100%"}}>
+                <tr>
+                    <Row justify="end">
+                        <td style={{margin: "20px"}}><Link to='/'>Home</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/info'>Information</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/product'>Product</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/notice'>Notice</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/contact'>Contact</Link></td>
+                    </Row>
+                </tr>
+            </table>
 
         </>
 

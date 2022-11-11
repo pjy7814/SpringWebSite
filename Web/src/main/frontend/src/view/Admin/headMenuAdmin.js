@@ -31,14 +31,18 @@ export default function HeadMenuAdmin() {
                 <Col flex="auto"></Col>
                 <Col flex="50px"><Link type="submit" onClick={onClick}>Logout</Link></Col>
             </Row>
-
-            <Row justify="end">
-                <Col span={2}><Button type="text" size="middle"><Link to='/'>Home</Link></Button></Col>
-                <Col span={2}><Button type="text" size="middle"><Link to='/infoAdmin'>Information</Link></Button></Col>
-                <Col span={2}><Button type="text" size="middle"><Link to='/productAdmin'>Product</Link></Button></Col>
-                <Col span={2}><Button type="text" size="middle"><Link to='/noticeAdmin'>Notice</Link></Button></Col>
-                <Col span={2}><Button type="text" size="middle"><Link to='/contactAdmin'>Contact</Link></Button></Col>
-            </Row>
+            <table style={{margin:"auto", width: "100%"}}>
+                <tr>
+                    <Row justify="end">
+                        <td style={{margin: "20px"}}><Link to='/'>Home</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/infoAdmin'>Information</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/productAdmin'>Product</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/noticeAdmin'>Notice</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/contactAdmin'>Contact</Link></td>
+                        <td style={{margin: "20px"}}><Link to='/mypage'>My Page</Link></td>
+                    </Row>
+                </tr>
+            </table>
 
         </>
 
