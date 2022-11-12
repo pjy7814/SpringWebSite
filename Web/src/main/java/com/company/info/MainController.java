@@ -73,7 +73,6 @@ public class MainController {
         }
 
         // 세션이 유지되면 로그인으로 이동
-        System.out.println("Admin"+ loginMember.getId());
         model.addAttribute("user", loginMember);
 
         return "loginMember";
@@ -83,7 +82,6 @@ public class MainController {
     @GetMapping("/info")
     public Info getInfo() {
         Info info = service.getInfo();
-        System.out.println(info.getSubtitle()+ info.getContent());
         return info;
     }
     @PostMapping("/update/info")

@@ -5,20 +5,20 @@ import {Link} from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function HomeAdmin() {
-    const [user_login, setLoginData] = useState('');
-    const navigate = useNavigate();
-    useEffect(() => {
-        axios.get('/loginCheck')
-            .then(response => {
-                    setLoginData(response.data);
-                    // 로그인 안한 멤버 접근 제어
-                    if (response.data !== "loginMember"){
-                        navigate('/login');
-                    }
-                }
-            )
-            .catch(error => console.log(error))
-    }, []);
+    // const [user_login, setLoginData] = useState('');
+    // const navigate = useNavigate();
+    // useEffect(() => {
+    //     axios.get('/loginCheck')
+    //         .then(response => {
+    //                 setLoginData(response.data);
+    //                 // 로그인 안한 멤버 접근 제어
+    //                 if (response.data !== "loginMember"){
+    //                     navigate('/login');
+    //                 }
+    //             }
+    //         )
+    //         .catch(error => console.log(error))
+    // }, []);
     return (
         <div>
             <HeadMenuAdmin/>

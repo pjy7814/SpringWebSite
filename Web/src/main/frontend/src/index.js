@@ -7,9 +7,8 @@ import 'antd/dist/antd.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <App />,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
