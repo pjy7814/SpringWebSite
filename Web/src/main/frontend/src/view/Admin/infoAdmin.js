@@ -38,7 +38,6 @@ export default function InfoAdmin() {
                     'Content-Type': 'application/json'
                 }
             });
-            console.log("login", response.data)
 
             if (response.data == false) {   // 저장 실패
 

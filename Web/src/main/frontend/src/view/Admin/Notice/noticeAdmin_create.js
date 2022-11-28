@@ -1,4 +1,6 @@
-import {Input, Typography, Button, Col, Row} from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import type { UploadProps } from 'antd';
+import {Input, Typography, Button, Col, Row, Upload} from 'antd';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import HeadMenuAdmin from "../headMenuAdmin";
@@ -7,8 +9,11 @@ import {Link, useNavigate} from "react-router-dom";
 const { TextArea } = Input;
 const { Title} = Typography;
 
-export default function NoticeAdmin_create() {
+
+
+const NoticeAdmin_create: React.FC = () => {
     const navigate = useNavigate();
+    const [imageUrl, setImageUrl] = useState("http://localhost:8080/api/upload/file/default.jpeg");
     const [notice, setNotice] = useState({
         title: '',
         content:'',
@@ -43,6 +48,25 @@ export default function NoticeAdmin_create() {
 
     }
 
+    // Image
+    // const imageSave = (e) => {
+    //     if (e.target.files[0]) {
+    //         const img = e.target.files[0];
+    //         const formData = new FormData();
+    //         formData.append('file', img);
+    //         img.append("file", e.target.files[0]);
+    //         axios
+    //             .post("http://localhost:8080/api/upload/file", img)
+    //             .then((res) => {
+    //                 setImageUrl(res.data);
+    //             })
+    //             .catch((err) => {
+    //                 console.error(err);
+    //             });
+    //     }
+    //
+    // }
+
     return (
     <div>
         <HeadMenuAdmin />
@@ -64,6 +88,9 @@ export default function NoticeAdmin_create() {
                     <tr>
                         <td > <TextArea showCount rows={"20"} name = "content" maxLength={1500} value={notice.content} onChange={onChange} /></td>
                     </tr>
+                    <tr>
+                        <td><input type="file" name="files" multiple="multiple"/></td>
+                    </tr>
                     <br/>
 
                     <Row>
@@ -79,3 +106,5 @@ export default function NoticeAdmin_create() {
     </div>
     );
 }
+
+export default NoticeAdmin_create;

@@ -1,0 +1,28 @@
+.footer{
+    height: 100px;
+    margin-top:auto;
+    background-color: #282c34;
+}
+
+.contents {
+    width: 96%;
+    max-width:1500px;
+    heght: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 0 auto;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.layout{
+    padding-top: 80px;
+}
+
+.main {
+    min-height: calc(1000px - 180px);
+}

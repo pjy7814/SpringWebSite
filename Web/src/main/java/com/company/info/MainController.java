@@ -5,15 +5,21 @@ import com.company.info.model.Notice;
 import com.company.info.model.User;
 import com.company.info.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 @RestController
 public class MainController {
@@ -116,5 +122,48 @@ public class MainController {
         }
         return true;
     }
-    
+
+
+//     파일 저장
+    @PostMapping(value="/api/upload/file")
+    public ResponseEntity<String> uploadFile(MultipartFile file) throws IllegalStateException, IOException{
+        System.out.println("uploadFile:" + file);
+        if( !file.isEmpty() ) {
+//            log.debug("file org name = {}", file.getOriginalFilename());
+//            log.debug("file content type = {}", file.getContentType());
+            file.transferTo(new File(file.getOriginalFilename()));
+        }
+
+        return new ResponseEntity<>("", HttpStatus.OK);
+    }
+//    @PostMapping("/api/upload/file")
+//    public boolean uploadFile(List<MultipartFile> files) throws IllegalStateException, IOException {
+//        String UPLOAD_PATH = "/Users/jiyoung/Pictures/" + new Date().getTime(); // 업로드 할 위치 // 현재 날짜 값 폴더
+//        System.out.println(files);
+//        try {
+//            for (int i = 0; i < files.size(); i++) {
+//
+//                String originName = files.get(i).getOriginalFilename(); // 파일.type
+//                String[] tempStr = originName.split(".");
+//                originName = tempStr[0];
+//                String type = tempStr[1];
+//
+//                File newFile = new File(UPLOAD_PATH, originName + "." + type); // 경로/파일.type
+////
+////                if (!fileSave.exists()) { // 폴더가 없을 경우 폴더 만들기
+////                    fileSave.mkdirs();
+////                }
+//
+//                files.get(i).transferTo(newFile);
+//                // transferTo(File file) > multipartFile을 주어진 file의 경로로 이동 (copy)
+//            }
+//
+//        } catch (IOException e) {
+//            System.out.println("fileError" + e);
+//            return false;
+//        }
+//
+//        return true;
+//    }
+
 }

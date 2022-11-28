@@ -1,11 +1,12 @@
+import styles from './Footer.module.css';
 import { Table } from 'antd';
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import HeadMenu from "./headMenu";
+import Footer from "./footer";
 import {Typography} from "antd";
 import {Link} from "react-router-dom";
 const { Title} = Typography;
-
 
 
 
@@ -24,21 +25,26 @@ function Notice() {
     return (
         <div>
             <HeadMenu />
-            <div style={{padding:"50px"}}>
-                <div style={{padding:"10px"}}>
-                    <Title>Notice</Title>
-                    <Table
-                        columns={columns}
-                        dataSource={notice}
-                        pagination={{
-                            pageSize: 10,
-                        }}
-                        scroll={{
-                            y: 240,
-                        }}
-                    />
+
+            <main className={styles.main}>
+                <div style={{padding:"50px"}}>
+                    <div style={{padding:"10px"}}>
+                        <Title>Notice</Title>
+                        <Table
+                            columns={columns}
+                            dataSource={notice}
+                            pagination={{
+                                pageSize: 10,
+                            }}
+                            scroll={{
+                                y: 240,
+                            }}
+                        />
+                    </div>
                 </div>
-            </div>
+            </main>
+
+            <Footer />
         </div>
     )
 }
